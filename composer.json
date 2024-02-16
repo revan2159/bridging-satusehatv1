@@ -1,0 +1,19 @@
+{
+    "name": "rsudipodev/bridging-satusehatv1",
+    "description": "SATUSEHAT TANPA JSON BUILD",
+    "type": "library",
+    "require": {
+        "php": "^7.1|^8.2",
+        "ext-curl": "*",
+        "ext-openssl": "*",
+        "vlucas/phpdotenv": "5.6.x-dev",
+        "phpseclib/phpseclib": "^3.0"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Rsudipodev\\BridgingSatusehatv1\\": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+}
