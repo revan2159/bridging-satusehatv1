@@ -3,10 +3,10 @@
 namespace Rsudipodev\BridgingSatusehatv1\Bridge;
 
 use Rsudipodev\BridgingSatusehatv1\Foundation\Http\OAuth2Client;
-use Rsudipodev\BridgingSatusehatv1\Foundation\Handler\CurlFactory;
+use Rsudipodev\BridgingSatusehatv1\Foundation\Handler\GuzzleFactory;
 use Rsudipodev\BridgingSatusehatv1\Foundation\Http\ConfigSatusehat;
 
-class SatusehatFHIR extends CurlFactory
+class SatusehatFHIR extends GuzzleFactory
 {
     protected $auth;
     protected $access_token;
@@ -17,7 +17,7 @@ class SatusehatFHIR extends CurlFactory
     {
         $this->config = new ConfigSatusehat;
         $this->auth = new OAuth2Client($this->config->setUrlAuth() . $this->endpointAuth, $this->config->setCredentials());
-        $this->access_token = $this->auth->setToken();
+        $this->access_token = $this->auth->getToken();
     }
 
     public function getAccessToken()

@@ -22,7 +22,7 @@ class SatusehatKYC extends CurlFactory
     {
         $this->config = new ConfigSatusehat;
         $this->auth = new OAuth2Client($this->config->setUrlAuth() . $this->endpointAuth, $this->config->setCredentials());
-        $this->access_token = $this->auth->setToken();
+        $this->access_token = $this->auth->getToken();
     }
 
     public function generateKey()
