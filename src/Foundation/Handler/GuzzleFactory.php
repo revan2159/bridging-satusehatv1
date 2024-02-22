@@ -25,7 +25,7 @@ class GuzzleFactory
     {
         try {
             $request = Http::withHeaders([
-                'User-Agent' => 'RSUDIPO/1.0',
+                'User-Agent' => 'RSUDIPODEV/1.0',
                 'Content-Type' => $contentType,
                 'Accept' => '*/*',
                 'Connection' => 'keep-alive',

@@ -3,15 +3,15 @@
 namespace Rsudipodev\BridgingSatusehatv1\Bridge;
 
 use Rsudipodev\BridgingSatusehatv1\Foundation\Http\OAuth2Client;
-use Rsudipodev\BridgingSatusehatv1\Foundation\Handler\CurlFactory;
 use Rsudipodev\BridgingSatusehatv1\Foundation\Http\ConfigSatusehat;
+use Rsudipodev\BridgingSatusehatv1\Foundation\Handler\GuzzleFactory;
 // Cryptography
 use phpseclib3\Crypt\AES;
 use phpseclib3\Crypt\PublicKeyLoader;
 use phpseclib3\Crypt\Random;
 use phpseclib3\Crypt\RSA;
 
-class SatusehatKYC extends CurlFactory
+class SatusehatKYC extends GuzzleFactory
 {
     protected $auth;
     protected $access_token;
