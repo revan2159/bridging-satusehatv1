@@ -16,7 +16,7 @@ class SatusehatConsent extends GuzzleFactory
     public function __construct()
     {
         $this->config = new ConfigSatusehat;
-        $this->auth = new OAuth2Client($this->config->setUrlAuth() . $this->endpointAuth, $this->config->setCredentials());
+        $this->auth = new OAuth2Client($this->config->getUrlAuth() . $this->endpointAuth, $this->config->getCredentials());
         $this->access_token = $this->auth->getToken();
     }
     public function getAccessToken()
@@ -26,23 +26,23 @@ class SatusehatConsent extends GuzzleFactory
 
     public function getRequest($endpoint)
     {
-        $respon = $this->makeRequest($this->config->setUrlConsent() . $endpoint, "GET");
+        $respon = $this->makeRequest($this->config->getUrlConsent() . $endpoint, "GET");
         return $respon;
     }
 
     public function postRequest($endpoint, $data)
     {
-        return $this->makeRequest($this->config->setUrlConsent() . $endpoint, "POST", $data);
+        return $this->makeRequest($this->config->getUrlConsent() . $endpoint, "POST", $data);
     }
 
     public function putRequest($endpoint, $data)
     {
-        return $this->makeRequest($this->config->setUrlConsent() . $endpoint, "PUT", $data);
+        return $this->makeRequest($this->config->getUrlConsent() . $endpoint, "PUT", $data);
     }
     // for text/plain
     public function textRequest($endpoint, $data)
     {
-        return $this->makeRequest($this->config->setUrlConsent() . $endpoint, "POST", $data, "text/plain");
+        return $this->makeRequest($this->config->getUrlConsent() . $endpoint, "POST", $data, "text/plain");
     }
 
     protected function makeRequest($endpoint, $method = "POST", $payload = "")

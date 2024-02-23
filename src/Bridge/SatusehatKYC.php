@@ -21,7 +21,7 @@ class SatusehatKYC extends GuzzleFactory
     public function __construct()
     {
         $this->config = new ConfigSatusehat;
-        $this->auth = new OAuth2Client($this->config->setUrlAuth() . $this->endpointAuth, $this->config->setCredentials());
+        $this->auth = new OAuth2Client($this->config->getUrlAuth() . $this->endpointAuth, $this->config->setCredentials());
         $this->access_token = $this->auth->getToken();
     }
 

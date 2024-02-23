@@ -16,15 +16,10 @@ class ConfigSatusehat
     protected $organizationId;
     protected $clientId;
     protected $clientSecret;
-    protected $token;
-    protected $header;
-    protected $timestamps;
 
     public function __construct()
     {
-        $dotenv = Dotenv::createUnsafeImmutable(getcwd());
-        $dotenv->safeLoad();
-
+        $this->loadEnvironmentVariables();
 
         $this->urlAuth = Constant::getAuthUrl();
         $this->urlBase = Constant::getBaseUrl();
@@ -36,52 +31,57 @@ class ConfigSatusehat
         $this->clientSecret = Enviroment::clientSecret();
     }
 
-    public function setUrlAuth()
+    protected function loadEnvironmentVariables()
+    {
+        $dotenv = Dotenv::createImmutable(getcwd());
+        $dotenv->safeLoad();
+    }
+
+    public function getUrlAuth()
     {
         return $this->urlAuth;
     }
 
-    public function setUrlBase()
+    public function getUrlBase()
     {
         return $this->urlBase;
     }
 
-    public function setUrlConsent()
+    public function getUrlConsent()
     {
         return $this->urlConsent;
     }
 
-    public function setUrlKfa()
+    public function getUrlKfa()
     {
         return $this->urlKfa;
     }
 
-    public function setUrlKyc()
+    public function getUrlKyc()
     {
         return $this->urlKyc;
     }
 
-    public function setOrganizationId()
+    public function getOrganizationId()
     {
         return $this->organizationId;
     }
 
-    public function setClientId()
+    public function getClientId()
     {
         return $this->clientId;
     }
 
-    public function setClientSecret()
+    public function getClientSecret()
     {
         return $this->clientSecret;
     }
 
-    public function setCredentials()
+    public function getCredentials()
     {
-        $data = [
+        return http_build_query([
             "client_id" => $this->clientId,
             "client_secret" => $this->clientSecret
-        ];
-        return http_build_query($data);
+        ]);
     }
 }
